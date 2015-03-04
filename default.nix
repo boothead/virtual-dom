@@ -1,8 +1,10 @@
-{ mkDerivation, base, ghcjs-base, ghcjs-dom, lens, stdenv }:
-mkDerivation {
+{ cabal, aeson, ghcjsBase, ghcjsDom, ghcjsPrim, lens, stdenv }:
+cabal.mkDerivation (self: {
   pname = "virtual-dom";
   version = "0.1";
   src = ./.;
-  buildDepends = [ base ghcjs-base ghcjs-dom lens ];
-  license = stdenv.lib.licenses.bsd3;
-}
+  buildDepends = [ aeson ghcjsBase ghcjsDom lens ];
+  meta = {
+    license = stdenv.lib.licenses.bsd3;
+  };
+})
