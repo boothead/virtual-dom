@@ -8,7 +8,8 @@ import GHCJS.Marshal
 import GHCJS.Types
 import System.IO.Unsafe
 import VirtualDom.Prim
-  
+import VirtualDom.Instance
+
 abbr_ :: Traversal' HTMLElement (Maybe JSString)
 abbr_ = attributes . at "abbr"
 
