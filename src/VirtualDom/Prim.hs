@@ -13,6 +13,7 @@ import GHCJS.Types
 import System.IO.Unsafe
 import qualified Data.Immutable as Immutable
 import qualified GHCJS.DOM.HTMLElement as DOM
+import VirtualDom.Instance
 
 -- | An opaque data-type representing a foreign @VNode@ object.
 data VNode

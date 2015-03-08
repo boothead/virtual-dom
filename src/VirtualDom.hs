@@ -1,5 +1,5 @@
 module VirtualDom
-       (module VirtualDom.HTML, with, into, renderTo, bodyContainer,
+       (module VirtualDom.HTML, with, into, editing, renderTo, bodyContainer,
         newTopLevelContainer, on, DOMDelegator, initDomDelegator)
        where
 
@@ -30,6 +30,10 @@ into el xs =
   el & _HTMLElement %~
   (children .~
    unsafePerformIO (toArray (coerce xs)))
+   
+editing :: HTML -> State HTMLElement () -> HTML
+editing el f =
+  el & _HTMLElement %~ execState f
 
 --------------------------------------------------------------------------------
 data DOMDelegator
